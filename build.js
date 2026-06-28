@@ -1,50 +1,69 @@
 const fs = require("fs");
 const path = require("path");
 
+// Crucial fix: Automatically create directories if they don't exist
+if (!fs.existsSync("./personal_stupid_thoughts"))
+  fs.mkdirSync("./personal_stupid_thoughts");
+if (!fs.existsSync("./learnings")) fs.mkdirSync("./learnings");
 if (!fs.existsSync("./dist")) fs.mkdirSync("./dist");
 
 function getPostsFromDir(dirPath, uniquePrefix) {
-  if (!fs.existsSync(dirPath)) return { html: "", modals: "" };
-
   let htmlContent = "";
   let modalContent = "";
-  const files = fs.readdirSync(dirPath).filter((file) => file.endsWith(".md"));
+
+  // Safely read files, default to empty array if something goes wrong
+  let files = [];
+  try {
+    files = fs.readdirSync(dirPath).filter((file) => file.endsWith(".md"));
+  } catch (e) {
+    console.log(`Directory ${dirPath} could not be read.`);
+  }
+
+  if (files.length === 0) {
+    return { html: "", modals: "" };
+  }
 
   files.forEach((file, index) => {
-    const content = fs.readFileSync(path.join(dirPath, file), "utf-8");
-    const lines = content.split("\n");
-    const date = lines[0] || "Unknown Date";
+    try {
+      const content = fs.readFileSync(path.join(dirPath, file), "utf-8");
+      if (!content.trim()) return; // Skip empty files
 
-    let body = lines.slice(1).join("\n").trim();
-    let title = "Untitled Thought";
+      const lines = content.split("\n");
+      const date = lines[0] || "Unknown Date";
 
-    if (body.startsWith("### ")) {
-      const firstLine = body.split("\n")[0];
-      title = firstLine.replace("### ", "");
-      body = body.replace(firstLine, "").trim();
-    }
+      let body = lines.slice(1).join("\n").trim();
+      let title = "Untitled Thought";
 
-    const postId = `${uniquePrefix}-${index}`;
-    const cleanText = body.replace(/<[^>]*>/g, "");
-    const previewText =
-      cleanText.length > 30 ? cleanText.substring(0, 30) + "..." : cleanText;
+      if (body.startsWith("### ")) {
+        const linesOfBody = body.split("\n");
+        title = linesOfBody[0].replace("### ", "");
+        body = linesOfBody.slice(1).join("\n").trim();
+      }
 
-    htmlContent += `
-        <article class="post-preview" onclick="openPost('${postId}')">
-            <span class="date">${date.trim()}</span>
-            <h3><a href="#${postId}" class="post-link">${title.trim()}</a></h3>
-            <p class="preview-text">${previewText.replace(/\n/g, " ")}</p>
-        </article>\n`;
+      const postId = `${uniquePrefix}-${index}`;
+      const cleanText = body.replace(/<[^>]*>/g, "");
+      const previewText =
+        cleanText.length > 30 ? cleanText.substring(0, 30) + "..." : cleanText;
 
-    modalContent += `
-        <div id="modal-${postId}" class="modal-overlay" onclick="closePost('${postId}')">
-            <div class="modal-card" onclick="event.stopPropagation()">
-                <button class="close-btn" onclick="closePost('${postId}')">✕ Close</button>
+      htmlContent += `
+            <article class="post-preview" onclick="openPost('${postId}')">
                 <span class="date">${date.trim()}</span>
-                <h2>${title.trim()}</h2>
-                <div class="modal-body">${body.replace(/\n/g, "<br>")}</div>
-            </div>
-        </div>\n`;
+                <h3><a href="#${postId}" class="post-link">${title.trim()}</a></h3>
+                <p class="preview-text">${previewText.replace(/\n/g, " ")}</p>
+            </article>\n`;
+
+      modalContent += `
+            <div id="modal-${postId}" class="modal-overlay" onclick="closePost('${postId}')">
+                <div class="modal-card" onclick="event.stopPropagation()">
+                    <button class="close-btn" onclick="closePost('${postId}')">✕ Close</button>
+                    <span class="date">${date.trim()}</span>
+                    <h2>${title.trim()}</h2>
+                    <div class="modal-body">${body.replace(/\n/g, "<br>")}</div>
+                </div>
+            </div>\n`;
+    } catch (fileErr) {
+      console.error(`Error processing file ${file}:`, fileErr);
+    }
   });
 
   return { html: htmlContent, modals: modalContent };
@@ -108,11 +127,11 @@ const template = `<!DOCTYPE html>
     <main class="container">
         <section class="thoughts-section">
             <h2>🧠 Stupid Personal Thoughts</h2>
-            ${thoughtsData.html || "<p>No thoughts yet. Brain empty.</p>"}
+            ${thoughtsData.html || "<p>No thoughts yet. Brain completely empty.</p>"}
         </section>
         <section class="learnings-section">
             <h2>💡 Stupid Learnings</h2>
-            ${learningsData.html || "<p>No learnings yet. Still stupid.</p>"}
+            ${learningsData.html || "<p>No learnings yet. Still baseline stupid.</p>"}
         </section>
     </main>
 
@@ -135,14 +154,12 @@ const template = `<!DOCTYPE html>
                 history.replaceState(null, null, ' ');
             }
         }
-
         window.addEventListener('load', () => {
             const hash = window.location.hash.replace('#', '');
             if (hash && document.getElementById('modal-' + hash)) {
                 openPost(hash);
             }
         });
-
         const btn = document.getElementById('themeToggle');
         if (localStorage.getItem('theme') === 'light') {
             document.documentElement.setAttribute('data-theme', 'light');
@@ -164,3 +181,4 @@ const template = `<!DOCTYPE html>
 </html>`;
 
 fs.writeFileSync("./dist/index.html", template);
+console.log("Build finished successfully!");
