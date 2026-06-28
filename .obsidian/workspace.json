@@ -11,10 +11,14 @@
             "id": "49d2e01443e8cbfa",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "personal_stupid_thoughts/aboutme.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "aboutme"
             }
           }
         ]
@@ -89,6 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "personal_stupid_thoughts/aboutme.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,7 +103,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for aboutme"
             }
           },
           {
@@ -107,11 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "personal_stupid_thoughts/aboutme.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from aboutme"
             }
           },
           {
@@ -132,9 +138,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "personal_stupid_thoughts/aboutme.md"
+              },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of aboutme"
             }
           }
         ]
@@ -154,8 +162,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "49d2e01443e8cbfa",
+  "active": "6d37a1c281d72394",
   "lastOpenFiles": [
+    "Untitled.md",
+    "personal_stupid_thoughts/aboutme.md",
+    "Untitled",
+    "aboutme.md",
     "index.html",
     "dist/index.html",
     "dist",
