@@ -180,5 +180,5 @@ const template = `<!DOCTYPE html>
 </body>
 </html>`;
 
-fs.writeFileSync("./dist/index.html", template);
+fs.writeFileSync("./index.html", template);
 console.log("Build finished successfully!");
