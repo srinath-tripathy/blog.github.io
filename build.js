@@ -32,7 +32,7 @@ function getPostsFromDir(dirPath, uniquePrefix) {
       const date = lines[0] || "Unknown Date";
 
       let body = lines.slice(1).join("\n").trim();
-      let title = "Untitled Thought";
+      let title = file.split(".md")[0];
 
       if (body.startsWith("### ")) {
         const linesOfBody = body.split("\n");

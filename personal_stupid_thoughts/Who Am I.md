@@ -1,9 +1,3 @@
----
-title: "About Me"
-permalink: /about/
-layout: page
----
-
 # Hello, I'm Srinath 👋
 
 Welcome to my personal corner of the internet. I am a developer, technical writer, and lifelong learner interested in automation and clean code architectures.

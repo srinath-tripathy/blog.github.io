@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "personal_stupid_thoughts/aboutme.md",
+                "file": "personal_stupid_thoughts/Who Am I.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "aboutme"
+              "title": "Who Am I"
             }
           }
         ]
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "personal_stupid_thoughts/aboutme.md",
+                "file": "personal_stupid_thoughts/Who Am I.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for aboutme"
+              "title": "Backlinks for Who Am I"
             }
           },
           {
@@ -112,12 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "personal_stupid_thoughts/aboutme.md",
+                "file": "personal_stupid_thoughts/Who Am I.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from aboutme"
+              "title": "Outgoing links from Who Am I"
             }
           },
           {
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "personal_stupid_thoughts/aboutme.md"
+                "file": "personal_stupid_thoughts/Who Am I.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of aboutme"
+              "title": "Outline of Who Am I"
             }
           }
         ]
@@ -162,13 +162,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6d37a1c281d72394",
+  "active": "49d2e01443e8cbfa",
   "lastOpenFiles": [
+    "index.html",
     "Untitled.md",
-    "personal_stupid_thoughts/aboutme.md",
+    "personal_stupid_thoughts/Who Am I.md",
     "Untitled",
     "aboutme.md",
-    "index.html",
     "dist/index.html",
     "dist",
     "learnings",
