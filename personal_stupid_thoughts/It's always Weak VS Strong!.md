@@ -1,5 +1,7 @@
 #thought
 
+> ### It's always Weak VS Strong! 
+
  ###### Off late I have been releasing that in this world there are only 2 category **weak** and **strong**. And you already know which one the world respect and which one not.
 
 ###### What does **strong** mean?  Will it be mentally strong, physically strong, emotionally strong or something else? When I say strong it means either strong **physically** or **monetarily**. If you are strong in both of the things then you are ***unstoppable***!
