@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "Who Am I"
             }
+          },
+          {
+            "id": "7de05e7ad4162b5d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "personal_stupid_thoughts/It's always Weak VS Strong!.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "It's always Weak VS Strong!"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -93,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "personal_stupid_thoughts/Who Am I.md",
+                "file": "personal_stupid_thoughts/World doesnot respect cry baby.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +118,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Who Am I"
+              "title": "Backlinks for World doesnot respect cry baby"
             }
           },
           {
@@ -112,12 +127,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "personal_stupid_thoughts/Who Am I.md",
+                "file": "personal_stupid_thoughts/World doesnot respect cry baby.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Who Am I"
+              "title": "Outgoing links from World doesnot respect cry baby"
             }
           },
           {
@@ -139,10 +154,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "personal_stupid_thoughts/Who Am I.md"
+                "file": "personal_stupid_thoughts/World doesnot respect cry baby.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Who Am I"
+              "title": "Outline of World doesnot respect cry baby"
             }
           }
         ]
@@ -162,18 +177,23 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "49d2e01443e8cbfa",
+  "active": "7de05e7ad4162b5d",
   "lastOpenFiles": [
-    "index.html",
-    "Untitled.md",
     "personal_stupid_thoughts/Who Am I.md",
-    "Untitled",
-    "aboutme.md",
-    "dist/index.html",
-    "dist",
-    "learnings",
-    "personal_stupid_thoughts",
-    "build.js",
-    "package.json"
+    "personal_stupid_thoughts/It's always Weak VS Strong!.md",
+    "index.html",
+    "node_modules/marked/bin/marked.js",
+    "node_modules/marked/bin/main.js",
+    "node_modules/marked/bin",
+    "package-lock.json",
+    "node_modules/marked/lib/marked.d.ts",
+    "node_modules/marked/README.md",
+    "node_modules/marked/man/marked.1.md",
+    "node_modules/marked/LICENSE.md",
+    "node_modules/marked/lib/marked.umd.js.map",
+    "node_modules/marked/lib/marked.esm.js.map",
+    "node_modules/marked/package.json",
+    "node_modules/marked/lib/marked.umd.js",
+    "aboutme.md"
   ]
 }
