@@ -22,39 +22,54 @@
         header { text-align: center; border-bottom: 3px solid var(--border-color); padding-bottom: 20px; margin-bottom: 40px; }
         h1 { margin: 0; font-size: 2.5rem; }
         .subtitle { font-style: italic; margin-top: 5px; color: var(--text-muted); }
-        .theme-toggle-btn { background-color: var(--btn-bg); color: var(--btn-text); border: 2px solid var(--border-color); padding: 10px 15px; font-family: inherit; font-weight: bold; cursor: pointer; margin-top: 15px; border-radius: 4px; transition: all 0.2s ease; }
-        .theme-toggle-btn:hover { opacity: 0.8; }
+        .theme-toggle-btn { background-color: var(--btn-bg); color: var(--btn-text); border: 2px solid var(--border-color); padding: 10px 15px; font-family: inherit; font-weight: bold; cursor: pointer; margin-top: 15px; border-radius: 4px; }
         .container { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
         @media (min-width: 768px) { .container { grid-template-columns: 1fr 1fr; } }
         section { background: var(--card-bg); border: 3px solid var(--border-color); border-radius: 8px; padding: 20px; box-shadow: 5px 5px 0px var(--border-color); }
         .thoughts-section { border-top: 15px solid var(--accent-thoughts); }
         .learnings-section { border-top: 15px solid var(--accent-learnings); }
         h2 { margin-top: 0; font-size: 1.8rem; border-bottom: 2px dashed var(--border-color); padding-bottom: 10px; }
-        .post-preview { 
-            margin-bottom: 25px; 
-            padding-bottom: 15px; 
-            border-bottom: 1px dashed var(--border-color); 
-            cursor: pointer; 
-            transition: all 0.2s ease;
-            padding: 15px;
-            border-radius: 4px;
-        }
-        .post-preview:hover { 
-            transform: translateX(5px);
-            background-color: rgba(255, 107, 107, 0.1);
-            border-left: 3px solid var(--accent-thoughts);
-            padding-left: 12px;
-        }
+        .post-preview { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed var(--border-color); cursor: pointer; transition: transform 0.1s ease; }
+        .post-preview:hover { transform: translateX(5px); }
         .post-preview:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
         .post-link { color: var(--text-color); text-decoration: none; }
         .post-preview:hover .post-link { text-decoration: underline; }
         .preview-text { margin: 5px 0 0 0; color: var(--text-muted); font-size: 0.95rem; }
         .date { font-size: 0.85rem; font-weight: bold; color: var(--text-muted); display: block; margin-bottom: 5px; }
+        .github-link { 
+            display: inline-block; 
+            margin-top: 8px; 
+            font-size: 0.85rem; 
+            color: var(--accent-learnings); 
+            text-decoration: none; 
+            padding: 3px 8px; 
+            border: 1px solid var(--border-color); 
+            border-radius: 3px; 
+            transition: all 0.2s ease;
+        }
+        .github-link:hover { 
+            background-color: var(--accent-learnings); 
+            color: var(--bg-color); 
+        }
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--modal-bg); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
         .modal-card { background: var(--card-bg); border: 4px solid var(--border-color); width: 100%; max-width: 700px; padding: 30px; box-sizing: border-box; border-radius: 8px; box-shadow: 8px 8px 0px var(--border-color); position: relative; }
-        .close-btn { position: absolute; top: 15px; right: 15px; background: var(--btn-bg); color: var(--btn-text); border: 2px solid var(--border-color); padding: 5px 10px; font-family: inherit; font-weight: bold; cursor: pointer; border-radius: 3px; transition: all 0.2s ease; }
-        .close-btn:hover { opacity: 0.8; }
+        .close-btn { position: absolute; top: 15px; right: 15px; background: var(--btn-bg); color: var(--btn-text); border: 2px solid var(--border-color); padding: 5px 10px; font-family: inherit; font-weight: bold; cursor: pointer; border-radius: 3px; }
         .modal-body { margin-top: 20px; font-size: 1.1rem; border-top: 2px dashed var(--border-color); padding-top: 20px; }
+        .github-link-modal {
+            display: inline-block;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            color: var(--accent-learnings);
+            text-decoration: none;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .github-link-modal:hover {
+            background-color: var(--accent-learnings);
+            color: var(--bg-color);
+        }
         footer { text-align: center; margin-top: 60px; font-size: 0.9rem; color: var(--text-muted); }
         body.modal-open { overflow: hidden; }
     </style>
@@ -69,16 +84,11 @@
         <section class="thoughts-section">
             <h2>🧠 Stupid Personal Thoughts</h2>
             
-            <article class="post-preview" onclick="redirectToGitHub('https://github.com/srinath-tripathy/blog.github.io/blob/main/./personal_stupid_thoughts/It's always Weak VS Strong!.md')">
+            <article class="post-preview" onclick="openPost('thought-0')">
                 <span class="date">#thought</span>
-                <h3><a href="#" class="post-link">It's always Weak VS Strong!</a></h3>
-                <p class="preview-text">Off late I have been releasing...</p>
-            </article>
-
-            <article class="post-preview" onclick="redirectToGitHub('https://github.com/srinath-tripathy/blog.github.io/blob/main/./personal_stupid_thoughts/Who Am I.md')">
-                <span class="date"># Hello, I'm Srinath 👋</span>
-                <h3><a href="#" class="post-link">Who Am I</a></h3>
-                <p class="preview-text">Welcome to my personal corner ...</p>
+                <h3><a href="#thought-0" class="post-link">It's always Weak VS Strong!</a></h3>
+                <p class="preview-text">###### Off late I have been re...</p>
+                <a href="https://github.com/srinath-tripathy/blog.github.io/blob/main/./personal_stupid_thoughts/It's always Weak VS Strong!.md" class="github-link" target="_blank" title="View on GitHub">📄 View on GitHub</a>
             </article>
 
         </section>
@@ -95,16 +105,8 @@
                     <button class="close-btn" onclick="closePost('thought-0')">✕ Close</button>
                     <span class="date">#thought</span>
                     <h2>It's always Weak VS Strong!</h2>
-                    <div class="modal-body">Off late I have been releasing that in this world there are only 2 category **weak** and **strong**. And you already know which one the world respect and which one not.<br><br>What does **strong** mean?  Will it be mentally strong, physically strong, emotionally strong or something else? When I say strong it means either strong **physically** or **monetarily**. If you are strong in both of the things then you are ***unstoppable***!<br><br>Being physically strong make sense while being monetarily strong does not, Isn't it ? Initially I also thought the same but let me clear it out - If you are strong monetarily you can hire people who are physically strong and they will work for you as a guardrail so that you will look like a threat to others.  I hope you got my point : ...<br><br>Then , what about emotionally strong and mentally strong? TBH - at first you are always being judged in this world  by your physique or money and if people feel you like you are a threat to them then they will respect otherwise not. One interesting fact here is - If you became physically strong by breaking your body inch by inch then by default you are mentally strong. **Then how to become emotionally strong?** *Honestly I don't know.<br><br>> [! BUT THEY SAY RESPECT CAN ONLY BE EARNED !]<br>>  **Do I need to become strong physically to get respected by others**? ==***Nope you need to get strong physically or monetarily not to get respect but not get disrespected by others***  !! I ***hope you got the difference :)***==<br><br>**********************</div>
-                </div>
-            </div>
-
-            <div id="modal-thought-1" class="modal-overlay" onclick="closePost('thought-1')">
-                <div class="modal-card" onclick="event.stopPropagation()">
-                    <button class="close-btn" onclick="closePost('thought-1')">✕ Close</button>
-                    <span class="date"># Hello, I'm Srinath 👋</span>
-                    <h2>Who Am I</h2>
-                    <div class="modal-body">Welcome to my personal corner of the internet. I am a developer, technical writer, and lifelong learner interested in automation and clean code architectures.<br><br>## What I'm Working On<br>* 🚀 Building automated static site pipelines with GitHub Actions.<br>* ✍️ Publishing weekly insights from my Obsidian vault.<br>* 🤖 Experimenting with lightweight Node.js scripts.<br><br>## Core Toolkit<br><br>| Category | Technologies |<br>| :--- | :--- |<br>| Frontend | HTML5, CSS3, JavaScript |<br>| Backend | Node.js, Express |<br>| Devops | GitHub Actions, Git, Linux Shell |<br><br>---<br>*Feel free to explore my source code on [GitHub](https://github.com).*</div>
+                    <a href="https://github.com/srinath-tripathy/blog.github.io/blob/main/./personal_stupid_thoughts/It's always Weak VS Strong!.md" class="github-link-modal" target="_blank">📄 View Source on GitHub</a>
+                    <div class="modal-body">###### Off late I have been releasing that in this world there are only 2 category **weak** and **strong**. And you already know which one the world respect and which one not.<br><br>###### What does **strong** mean?  Will it be mentally strong, physically strong, emotionally strong or something else? When I say strong it means either strong **physically** or **monetarily**. If you are strong in both of the things then you are ***unstoppable***!<br><br>###### Being physically strong make sense while being monetarily strong does not, Isn't it ? Initially I also thought the same but let me clear it out - If you are strong monetarily you can hire people who are physically strong and they will work for you as a guardrail so that you will look like a threat to others.  I hope you got my point : ...<br><br>###### Then , what about emotionally strong and mentally strong? TBH - at first you are always being judged in this world  by your physique or money and if people feel you like you are a threat to them then they will respect otherwise not. One interesting fact here is - If you became physically strong by breaking your body inch by inch then by default you are mentally strong. **Then how to become emotionally strong?** *Honestly I don't know.<br><br>> [! BUT THEY SAY RESPECT CAN ONLY BE EARNED !]<br>>  **Do I need to become strong physically to get respected by others**? ==***Nope you need to get strong physically or monetarily not to get respect but not get disrespected by others***  !! I ***hope you got the difference :)***==<br><br>**********************</div>
                 </div>
             </div>
 
@@ -114,15 +116,10 @@
     <footer><p>© 2026 Made with lack of sleep and poor judgment.</p></footer>
     
     <script>
-        function redirectToGitHub(url) {
-            window.open(url, '_blank');
-        }
-        
         function openPost(id) {
             document.getElementById('modal-' + id).style.display = 'flex';
             document.body.classList.add('modal-open');
         }
-        
         function closePost(id) {
             document.getElementById('modal-' + id).style.display = 'none';
             document.body.classList.remove('modal-open');
@@ -130,14 +127,12 @@
                 history.replaceState(null, null, ' ');
             }
         }
-        
         window.addEventListener('load', () => {
             const hash = window.location.hash.replace('#', '');
             if (hash && document.getElementById('modal-' + hash)) {
                 openPost(hash);
             }
         });
-        
         const btn = document.getElementById('themeToggle');
         if (localStorage.getItem('theme') === 'light') {
             document.documentElement.setAttribute('data-theme', 'light');
